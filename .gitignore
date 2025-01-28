@@ -1,0 +1,80 @@
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio files
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider files
+.idea/
+
+# MonoDevelop
+*.pidb
+*.userprefs
+
+# Visual Studio Code
+.vscode/
+
+# Mac
+.DS_Store
+
+# Windows
+[Tt]humbs.db
+[Dd]esktop.ini
+
+# NuGet
+*.nupkg
+*.snupkg
+*.nuspec
+.nuget/
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# DotNet
+*.dotCover
+*.dotTrace
+*.dotMemory
+*.dotSettings.user
+*.dotSettings
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# StyleCop
+StyleCopReport.xml
+
+# Files built by Visual Studio
+*.dll
+*.exe
+*.app
+*.appx
+*.appxbundle
+*.msix
+*.msixbundle
+*.msm
+*.msp
+*.zip
+*.jar
+*.winmd
+
+# Publish Web Output
+*.publishsettings
+
+# Others
+*.swp
+*~
