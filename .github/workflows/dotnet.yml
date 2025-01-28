@@ -34,7 +34,7 @@ jobs:
         tags: your-username/your-repo-name:latest
 
     - name: Publish artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: winforms-app
         path: ./out
