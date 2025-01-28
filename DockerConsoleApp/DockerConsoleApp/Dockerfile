@@ -1,43 +1,23 @@
-name: Build and Deploy
+# .NET SDK 이미지를 사용하여 애플리케이션을 빌드합니다.
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 
-on:
-  push:
-    branches: [ master ]
+# 작업 디렉토리를 설정합니다.
+WORKDIR /app
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+# 프로젝트 파일을 복사하고 복원합니다.
+COPY DockerConsoleApp.csproj ./
+RUN dotnet restore
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+# 나머지 애플리케이션 코드를 복사합니다.
+COPY . ./
 
-    - name: Set up .NET
-      uses: actions/setup-dotnet@v2
-      with:
-        dotnet-version: '8.0.x'
+# 애플리케이션을 빌드합니다.
+RUN dotnet publish -c Release -o out
 
-    - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1
+# 최종 이미지
+FROM mcr.microsoft.com/dotnet/runtime:8.0
+WORKDIR /app
+COPY --from=build /app/out .
 
-    - name: Log in to Docker Hub
-      uses: docker/login-action@v1
-      with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-
-    - name: List files
-      run: ls -la ./DockerConsoleApp
-
-    - name: Build and push Docker image
-      uses: docker/build-push-action@v2
-      with:
-        context: ./DockerConsoleApp
-        push: true
-        tags: <your-dockerhub-username>/dockerconsoleapp:latest
-
-    - name: Publish artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: console-app
-        path: ./out
+# 애플리케이션을 실행하는 명령어  
+ENTRYPOINT ["dotnet", "DockerConsoleApp.dll"]
