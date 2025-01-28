@@ -19,5 +19,5 @@ FROM mcr.microsoft.com/dotnet/runtime:8.0
 WORKDIR /app
 COPY --from=build /app/out .
 
-# 애플리케이션을 실행하는 명령어
-ENTRYPOINT ["dotnet", "DockerTEST.exe"]
+# 애플리케이션을 실행하는 명령어  
+ENTRYPOINT ["dotnet", "DockerTEST.dll"]
