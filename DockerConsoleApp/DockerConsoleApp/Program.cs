@@ -13,7 +13,8 @@ class Program
         }
         else
         {
-            Console.WriteLine($"Directory already exists at {path}");
+            Console.WriteLine($"Directory 삭제 : {path}");
+            Directory.Delete(path);
         }
 
         path = "/app/myfolder"; // Docker 컨테이너 내의 경로
@@ -24,7 +25,8 @@ class Program
         }
         else
         {
-            Console.WriteLine($"Directory already exists at {path}");
+            Console.WriteLine($"Directory 삭제 : {path}");
+            Directory.Delete(path);
         }
     }
 }
