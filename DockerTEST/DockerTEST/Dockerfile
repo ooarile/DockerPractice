@@ -5,7 +5,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
 # 프로젝트 파일을 복사하고 복원합니다.
-COPY DockerTEST/DockerTEST.csproj ./
+COPY DockerTEST.csproj ./
 RUN dotnet restore
 
 # 나머지 애플리케이션 코드를 복사합니다.
