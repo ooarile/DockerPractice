@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: ./DockerTEST
-        push: truec
+        push: true
         tags: parkseunghwan/dockerpractice:latest
 
     - name: Publish artifacts
