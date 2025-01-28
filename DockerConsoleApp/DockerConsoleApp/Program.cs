@@ -29,5 +29,4 @@ class Program
             Directory.Delete(path, true); // true parameter enables recursive deletion
         }
     }
-    }
 }
