@@ -20,4 +20,4 @@ WORKDIR /app
 COPY --from=build /app/out .
 
 # 애플리케이션을 실행하는 명령어
-ENTRYPOINT ["dotnet", "DockerTEST.dll"]
+ENTRYPOINT ["dotnet", "DockerTEST.exe"]
