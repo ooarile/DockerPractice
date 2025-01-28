@@ -9,7 +9,7 @@ namespace DockerTEST
 
         private void button1_Click(object sender, EventArgs e)
         {
-            button1.Text = "OdddK";
+            button1.Text = "O¤·¤·¤·dddK";
         }
     }
 }
